@@ -1,10 +1,4 @@
-import type { Metadata } from "next";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Startup",
-  description: "Clean modern startup website",
-};
 
 export default function RootLayout({
   children,
@@ -14,28 +8,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* NAVBAR */}
-        <header className="navbar">
-          <div className="container nav-inner">
-            <div className="logo">Startup</div>
-            <nav className="nav-links">
-              <a href="#home">Home</a>
-              <a href="#about">About</a>
-              <a href="#contact">Contact</a>
-            </nav>
-          </div>
-        </header>
+        <div className="appLayout">
+          {/* SIDE NAV */}
+          <aside className="sideNav">
+            <div className="sideNavInner">
+              <div className="sideLogo">Startup</div>
 
-        {/* PAGE CONTENT */}
-        <main className="main">{children}</main>
+              <nav className="sideLinks">
+                <a href="#home">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#approach">Approach</a>
+                <a href="#outcomes">Outcomes</a>
+                <a href="#usecases">Use Cases</a>
+                <a href="#status">Status</a>
+                <a href="#contact">Contact</a>
+              </nav>
+            </div>
+          </aside>
 
-        {/* FOOTER */}
-        <footer className="footer">
-          <div className="container footer-inner">
-            <span>© {new Date().getFullYear()} Startup</span>
-            <span>Built with Next.js</span>
-          </div>
-        </footer>
+          {/* MAIN CONTENT */}
+          <main className="sideMain">{children}</main>
+        </div>
       </body>
     </html>
   );
